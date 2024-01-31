@@ -1,0 +1,19 @@
+version: "4"
+services:
+  autogenstudio:
+    image: autogenstudio
+    environment:
+      - PYTHON_VERSION=${PYTHON_VERSION}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    volumes:
+      - db_volume:/usr/local/lib/python${PYTHON_VERSION}/site-packages/autogenstudio/web/
+      - source_volume:/usr/local/lib/python${PYTHON_VERSION}/site-packages/
+volumes:
+  db_volume:
+    name: autogenstudio_db
+  source_volume:
+    name: autogenstudio_sources
