@@ -51,6 +51,12 @@ A dockerfile to quickly deploy AutogenStudio.
        name: autogenstudio_sources
    ```
 
+   If you just want to get it running quickly, you can also use :
+
+```bash
+ docker run -p 8001:8001 -e OPENAI_API_KEY=your_actual_key -d autogenstudio
+```
+
 5. Build the Docker image:
 
    ```bash
@@ -78,6 +84,14 @@ The `-d` flag runs the container in detached mode, so it continues to run in the
    ```bash
    docker-compose logs -f autogenstudio
    ```
+
+9. Troubleshooting
+
+To launch shell on container :
+
+```bash
+ docker run -it --entrypoint /bin/bash autogenstudio -s
+```
 
 ### Note : Database Backup
 
